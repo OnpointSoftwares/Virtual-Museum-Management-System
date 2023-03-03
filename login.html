@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login | Virtual Museum</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="index.html">Virtual Museum</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="container-fluid decor_bg" id="login-panel">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel panel-primary" >
+                            <div class="panel-heading">
+                                <h4>LOGIN</h4>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-warning"><i>Login to make a Add Artefacts</i><p>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control"  id="emailid"placeholder="Email" name="e-mail" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                                    </div>
+                                    <button name="submit" onclick="do_login()" class="btn btn-primary">Login</button><br><br>
+                                </form><br/>
+                                <center><p id="loading_spinner"><img src="img/loading.gif"></p></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+function do_login()
+{
+ var email=$("#emailid").val();
+ var pass=$("#password").val();
+ if(email!="" && pass!="")
+ {
+  $("#loading_spinner").css({"display":"block"});
+  $.ajax
+  ({
+  type:'post',
+  url:'login_check.php',
+  data:{
+   do_login:"do_login",
+   email:email,
+   password:pass
+  },
+  success:function(response) {
+  if(response=="success")
+  {
+    window.location.href="admin/";
+  }
+  else
+  {
+    $("#loading_spinner").css({"display":"none"});
+    alert("Wrong Details");
+  }
+  }
+  });
+ }
+
+ else
+ {
+  alert("Please Fill All The Details");
+ }
+
+ return false;
+}
+</script>
+        <footer>
+            <div class="container">
+                <center>
+                    <p>Copyright &copy; Virtual Museum. All Rights Reserved  |  Contact Us: +254712345678</p>	
+                </center>
+            </div>
+        </footer>
+    </body>
+</html>
