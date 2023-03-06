@@ -63,6 +63,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="addvideo.php">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Add videos</span>
+                    </a>
+                </li>
+                <li>
                     <a href="logout.php">
                         <span class="icon"><i class="fas fa-cog"></i></span>
                         <span class="item">Logout</span>
