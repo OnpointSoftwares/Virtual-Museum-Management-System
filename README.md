@@ -1,1 +1,1 @@
-![Alt text](/relative/path/to/1.png?raw=true "Optional Title")
+https://github.com/OnpointSoftwares/Virtual-Museum-Management-System/blob/main/screenshots/1.PNG
