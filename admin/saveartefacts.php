@@ -25,18 +25,19 @@ if(move_uploaded_file($tmp,$path))
     $age=$_POST['Age'];
     $location=$_POST['Location'];
     $history=$_POST['History'];
+    $cat=$_POST['cat'];
     $fileTobeUploaded=$_FILES['fileToUpload']['name'];
 $connect=mysqli_connect("localhost","root","","virtualmuseum");
 if($connect)
 {
-$sql="insert into artefacts(Name,Age,Location,History,Image) values('$name','$age','$location','$history','$path')";
+$sql="insert into ".$cat."(Name,Age,Location,History,Image) values('$name','$age','$location','$history','$path')";
 
 if(mysqli_query($connect,$sql))
 {
     echo "Artifact successfully saved";
 }
 else{
-    echo "failed";
+    echo "failed".mysqli_error($connect);
 }
 }
 else{

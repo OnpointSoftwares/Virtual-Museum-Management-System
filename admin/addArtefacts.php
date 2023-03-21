@@ -41,7 +41,17 @@
           <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
         </label>
       </p>
-      
+      <p>
+        <label>
+         Category :
+          <br />
+          <select class="form-control" name="cat" id="cat">
+            <option value="artefacts">Artefacts</option>
+            <option value="wildlife">Wildlife</option>
+            <option value="exhibitions">Exhibitions</option>
+</select>
+        </label>
+      </p>
       <center><p id="loading_spinner" style="display:none"><img src="../img/loading.gif"></p></center>
       <p onclick="save()" class="btn btn-primary" style="cursor:default">Save</p>
       <a href="index.php?page=viewartefacts">Back</a>
@@ -79,11 +89,6 @@ console.log("Created FormData, " + [...data.keys()].length + " keys in data");
   if(response=="success")
   {
   alert("The data was saved successfully");
-  $("#name").html("");
- $("#location").html("");
- $("#Age").html("");
-$("#History").html("");
-$("#fileToUpload").html("");
 
   }
   else

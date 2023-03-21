@@ -65,7 +65,7 @@
                 <li>
                     <a href="addvideo.php">
                         <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="item">Add videos</span>
+                        <span class="item">Add Files</span>
                     </a>
                 </li>
                 <li>

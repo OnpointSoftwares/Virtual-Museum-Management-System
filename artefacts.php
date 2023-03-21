@@ -41,26 +41,19 @@
             <hr>
             <?php
             $con=mysqli_connect("localhost","root","","virtualmuseum");
-            $sql="select * from artefacts";
-            $query=mysqli_query($con,$sql);
-            while($row=mysqli_fetch_assoc($query))
+            $sql1="select Categories from Categories";
+            $query1=mysqli_query($con,$sql1);
+            while($row1=mysqli_fetch_assoc($query1))
             {
-            ?>
-            <div class="row text-center" id="cameras">
-                <div class="col-md-3 col-sm-6 home-feature">
-                    <div class="thumbnail">
-                    <?php
-                         echo "<img src='admin/".$row['image']."' alt='' height='100' width='100'>";
-                        ?>
-                        <div class="caption">
-                            <h3 style="font-size:20px"><?php echo $row['Name']; ?> </h3>
-                            <p><?php echo substr($row['History'], 0, 10) ?></p>
-                            <p><a href="details.php?name=<?php echo $row['id']; ?>" role="button" class="btn btn-primary btn-block">Learn More...</a></p>
-                        </div>
-                    </div>
-                </div>
-<?php 
-            }
+                echo "<div>";
+                echo "<h1><u><center>".$row1['Categories']."</center></u></h1>";
+                $cat=$row1['Categories'];
+                
+                getartefacts($cat);
+                echo "<br><br></div>
+                <hr/>";
+    }
+    
             ?>
                 </div>
             </div>
@@ -75,3 +68,36 @@
         </footer>
     </body>
 </html>
+<?php
+function getartefacts($category)
+                {
+            $con=mysqli_connect("localhost","root","","virtualmuseum");
+
+                    $cat=$category;
+            $sql="select * from ".$cat;
+            $query=mysqli_query($con,$sql);
+            if(!$query)
+            {
+                echo "Error".mysqli_error($con);
+            }
+            while($row=mysqli_fetch_assoc($query))
+            {
+            ?>
+            <div class="row text-center" id="cameras">
+                <div class="col-md-3 col-sm-6 home-feature">
+                    <div class="thumbnail">
+                    <?php
+                         echo "<img src='admin/".$row['image']."' alt='' height='100' width='100'>";
+                        ?>
+                        <div class="caption">
+                            <h3 style="font-size:20px"><?php echo $row['Name']; ?> </h3>
+                            <p><?php echo substr($row['History'], 0, 10) ?></p>
+                            <p><a href="details.php?name=<?php echo $row['id']; ?>" role="button" class="btn btn-primary btn-block">Learn More...</a></p>
+                        </div>
+                        
+                    </div>
+                </div>
+<?php 
+            }
+        }
+        ?>

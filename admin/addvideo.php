@@ -7,7 +7,7 @@
 <body>
 <form style="width:80%;margin:40px" enctype="multipart/form-data" id="artefact_video_save" action="savevideo.php" method="POST">
     <fieldset>
-      <legend>Artefact Video addition</legend>
+      <legend>Artefact File addition</legend>
        <?php
        $conn=mysqli_connect("localhost","root","","virtualmuseum");
        $sql="select * from artefacts";
@@ -16,7 +16,7 @@
         <label>
          Artefact ID:
           <br />
-        <select id='id'>";
+        <select name='id' id='id'>";
        while($row=mysqli_fetch_assoc($query))
        {
         echo "<option value=".$row['id'].">".$row['Name']."</option>";
@@ -27,7 +27,7 @@
       </p>
       <p>
         <label>
-         Image to be uploaded :
+         File to be uploaded :
           <br />
           <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
         </label>

@@ -5,7 +5,7 @@ if(isset($_FILES['fileToUpload']))
 $img = $_FILES["fileToUpload"]["name"];
 $tmp = $_FILES["fileToUpload"]["tmp_name"];
 $errorimg = $_FILES["fileToUpload"]["error"];
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt','mp4','MKV'); // valid extensions
 $path = 'images/'; // upload directory
 if(!empty($_POST['id'])|| !empty($_FILES['fileToUpload']))
 {
@@ -26,11 +26,11 @@ if(move_uploaded_file($tmp,$path))
 $connect=mysqli_connect("localhost","root","","virtualmuseum");
 if($connect)
 {
-$sql="insert into artefacts(Name,Age,Location,History,Image) values('$name','$age','$location','$history','$path')";
+$sql="insert into files(id,path,Extension) values('$id','$path','$ext')";
 
 if(mysqli_query($connect,$sql))
 {
-    echo "Artifact successfully saved";
+    header("location:success/");
 }
 else{
     echo "failed";
@@ -41,7 +41,11 @@ else{
 }
 }
 }
+else{
+    header("location:error/simple-404-template/404.html");
 }
+}
+
 }
 else{
     echo "Choose the file to upload";
