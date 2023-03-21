@@ -32,7 +32,7 @@
           <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
         </label>
       </p>
-      <input type="submit" >
+      <input type="submit" name="" >
       <a href="index.php?page=viewartefacts">Back</a>
      </fieldset>
   </form>

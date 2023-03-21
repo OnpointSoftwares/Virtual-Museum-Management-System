@@ -26,7 +26,7 @@ if(move_uploaded_file($tmp,$path))
 $connect=mysqli_connect("localhost","root","","virtualmuseum");
 if($connect)
 {
-$sql="insert into files(id,path,Extension) values('$id','$path','$ext')";
+$sql="insert into filesUploads(id,path,Extension) values('$id','$path','$ext')";
 
 if(mysqli_query($connect,$sql))
 {

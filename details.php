@@ -54,13 +54,15 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
             </div>
             <!--Main banner image end-->
             <?php
-            $query1=mysqli_query($conn,"select * from videos where id='".$_GET['name']."'");
-    while($row2=mysqli_fetch_assoc($query))
+            $query1=mysqli_query($conn,"select * from filesUploads where id='".$_GET['name']."' and Extension='mp4'");
+    while($row2=mysqli_fetch_assoc($query1))
     {
         ?>
         <video width="320" height="240" controls>
-            <source src="video.mp4" type="video/mp4">
-            <source src="video.mp4" type="video/ogg">
+  <?php echo "<source src='".$row2['path']."' type='video/mp4'>
+  <source src='admin/".$row2['path']."' type='video/ogg'>"; ?>
+  Your browser does not support the video tag.
+</video>
         <?php
     }
          ?>
