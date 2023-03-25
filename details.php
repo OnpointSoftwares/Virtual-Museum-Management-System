@@ -20,7 +20,7 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
         <script src="js/bootstrap.min.js"></script>
     </head>
 
-    <body style="padding-top: 50px;">
+    <body style="padding-top: 50px;margin:20px;border:1px solid black">
         <!-- Header -->
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -43,20 +43,25 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
         <!--Header end-->
 
         <div id="content">
-            <div id="details">
-        Name:<?php echo $row['Name']; 
+            <div id="details" style="font-size:20px;border:3px solid black" >
+            <center>Name:<?php echo $row['Name']."</center>";
+        echo "<center>Age:".$row['Age']." Years</center>";
+        echo "<center>Location:".$row['Location']."</center>";
         echo "<br>";
         $path="admin/".$row['image'];
-        ?>
+        ?><hr>
             <!--Main banner image-->
-            <img src='<?=$path; ?>' style="width:500px">
-            <p><?php echo $row['History'];?></p>
+            <img src='<?=$path; ?>' style="borderP3px solid transparent;border-radius:40px;width:1000px">
+            <center><h3>History</h3></center>
+            <p style="padding:20px"><?php echo $row['History'];?></p>
             </div>
+            <hr>
             <!--Main banner image end-->
             <?php
             $query1=mysqli_query($conn,"select * from filesUploads where id='".$_GET['name']."' and Extension='mp4'");
     while($row2=mysqli_fetch_assoc($query1))
     {
+        if($row2['Extension']=='mp4')
         ?>
         <video width="320" height="240" controls>
   <?php echo "<source src='".$row2['path']."' type='video/mp4'>
@@ -64,6 +69,11 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
   Your browser does not support the video tag.
 </video>
         <?php
+    }
+        ?>
+        <img src='<?=$row2['path']; ?>' style="borderP3px solid transparent;border-radius:40px;width:1000px">
+        <?
+    
     }
          ?>
                 </div>
@@ -88,5 +98,4 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
         
         <?php
     }
-}
 ?>

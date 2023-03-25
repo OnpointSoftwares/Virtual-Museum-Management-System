@@ -81,11 +81,11 @@ function getartefacts($category)
                 <div class="col-md-3 col-sm-6 home-feature">
                     <div class="thumbnail">
                     <?php
-                         echo "<img src='".$row['image']."' alt='' height='100' width='100'>";
+                         echo "<img src='".$row['image']."' alt='' height='400' width='400'>";
                         ?>
                         <div class="caption">
                             <h3 style="font-size:20px"><?php echo $row['Name']; ?> </h3>
-                            <p><?php echo substr($row['History'], 0, 10) ?></p>
+                            <p><?php echo substr($row['History'], 0, 200) ?></p>
                     </div>
                         
                     </div>

@@ -74,12 +74,12 @@ header[role="banner"] .utilities li a {
 }
 
 nav[role="navigation"] {
-  background: #2a3542;
+  background: rgb(255, 80, 89);
   color: #ddd;
   /* icons */
 }
 nav[role="navigation"] li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(219, 11, 81, 0.08);
 }
 nav[role="navigation"] li a {
   color: #ddd;

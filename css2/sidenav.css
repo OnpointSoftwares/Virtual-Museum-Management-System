@@ -10,11 +10,11 @@
 }
 
 body{
-    background: #f5f6fa;
+    background: #855313;
 }
 
 .wrapper .sidebar{
-    background: rgb(163, 160, 161);
+    background: #855313;
     position: fixed;
     top: 0;
     left: 0;
@@ -37,7 +37,7 @@ body{
 }
 
 .wrapper .sidebar .profile h3{
-    color: #ffffff;
+    color: #855313;
     margin: 10px 0 5px;
 }
 
@@ -117,7 +117,7 @@ body{
 }
 .wrapper .section .top_navbar .hamburger a{
     font-size: 28px;
-    color: #f4fbff;
+    color: #855313;
 }
 
 .wrapper .section .top_navbar .hamburger a:hover{

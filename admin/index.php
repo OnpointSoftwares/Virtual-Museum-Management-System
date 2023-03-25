@@ -16,13 +16,7 @@
     <div class="wrapper">
         <!--Top menu -->
         <div class="section">
-            <div class="top_navbar">
-                <div class="hamburger">
-                    <a href="#">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
-            </div>
+           
             <div class="content">
                 <?php
        if(isset($_GET['page']))
