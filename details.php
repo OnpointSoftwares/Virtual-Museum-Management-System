@@ -98,4 +98,5 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
         
         <?php
     }
+}
 ?>
