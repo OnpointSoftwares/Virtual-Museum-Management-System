@@ -61,7 +61,34 @@
         </div>
         <footer>
             <div class="container">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/instagram.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div>
+                <div class="container">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/facebook.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div>
+                <div class="container">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/twitter.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div><br><hr/>
                 <center>
+
                     <p>Copyright &copy; Virtual Museum. All Rights Reserved  |  Contact Us: +254712345678</p>	
                 </center>
             </div>
@@ -83,16 +110,16 @@ function getartefacts($category)
             while($row=mysqli_fetch_assoc($query))
             {
             ?>
-            <div class="row text-center" id="cameras">
-                <div class="col-md-3 col-sm-6 home-feature">
-                    <div class="thumbnail">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail" style="padding:0px;background-color:rgba(0, 0, 0, 0.7)">
                     <?php
-                         echo "<img src='admin/".$row['image']."' alt='' height='500' width='500'>";
+                         echo "<img src='admin/".$row['image']."' alt='' height='401' width='936'>";
                         ?>
-                        <div class="caption">
+                        <div class="caption" style="color:white;">
                             <h3 style="font-size:20px"><?php echo $row['Name']; ?> </h3>
-                            <p><?php echo substr($row['History'], 0, 200) ?></p>
-                            <p><a href="details.php?name=<?php echo $row['id']; ?>" role="button" class="btn btn-primary btn-block">Learn More...</a></p>
+                            <p><?php echo substr($row['History'], 0, 100) ?></p>
+                            <p><a href="details.php?name=<?php echo $row['id']; ?>&&type=<?php echo $cat; ?>" role="button" class="btn" style="background-color:rgba(0, 0, 0, 0.7);">Read More...</a></p>
                         </div>
                         
                     </div>

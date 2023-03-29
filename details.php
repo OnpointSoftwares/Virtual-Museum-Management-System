@@ -1,7 +1,15 @@
 <?php
 $conn=mysqli_connect("localhost","root","","virtualmuseum");
+$type=$_GET['type'];
 if(isset($_GET['name']) && $_GET['name'] > 0){
-   $query=mysqli_query($conn,"select * from artefacts where id='".$_GET['name']."'");
+    if($type=='artefacts')
+    {
+        $query=mysqli_query($conn,"select * from artefacts where id='".$_GET['name']."'");
+    }
+    else if($type=='wildlife')
+    {
+        $query=mysqli_query($conn,"select * from wildlife where id='".$_GET['name']."'");
+    }
     while($row=mysqli_fetch_assoc($query))
     {
         ?>
@@ -56,7 +64,7 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
             <p style="padding:20px"><?php echo $row['History'];?></p>
             </div>
             <hr>
-            <!--Main banner image end-->
+          <center><h3><u>Other Files related</u></h3></center>
             <?php
             $query1=mysqli_query($conn,"select * from filesUploads where id='".$_GET['name']."' and Extension='mp4'");
     while($row2=mysqli_fetch_assoc($query1))
@@ -85,9 +93,35 @@ if(isset($_GET['name']) && $_GET['name'] > 0){
         <!--Footer-->
         <footer>
             <div class="container">
-            
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/instagram.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div>
+                <div class="container">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/facebook.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div>
+                <div class="container">
+            <div class="row text-center" >
+                <div class="col-md-3 col-sm-6 home-feature" >
+                    <div class="thumbnail">
+                  <img src='img/twitter.png' alt='' height='100' width='100' style="background-color:transparent">
+                       
+                        
+                    </div>
+                </div><br><hr/>
                 <center>
-                    <p>Copyright &copy; Virtual Museum All Rights Reserved  |  Contact Us: +254712345678</p>	
+
+                    <p>Copyright &copy; Virtual Museum. All Rights Reserved  |  Contact Us: +254712345678</p>	
                 </center>
             </div>
         </footer>
